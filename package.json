@@ -1,0 +1,14 @@
+{
+  "name": "taskmanager-node",
+  "version": "1.0.0",
+  "description": "Task manager, where you can create tasks, subtasks, track them, etc. Done with React, Redux and Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "soligodevelopment",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
