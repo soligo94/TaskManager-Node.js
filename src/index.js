@@ -1,11 +1,20 @@
+// app.js
 const express = require('express');
+const swaggerDocs = require('./swagger');
+const usersRouter = require('./routes/users');
+
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+// Middleware para parsear JSON
+app.use(express.json());
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+// Rutas
+app.use('/users', usersRouter);
+
+// Inicia la documentación de Swagger
+swaggerDocs(app, PORT);
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
