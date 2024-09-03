@@ -12,18 +12,18 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000', // URL del servidor
+        url: 'http://localhost:3000/api', // Server URL
       },
     ],
   },
-  apis: ['./routes/*.js'], // Archivos de rutas donde definirás los endpoints
+  apis: ['./routes/*.js'], // File path where endpoints are defined.
 };
 
 const swaggerSpec = swaggerJSDoc(options);
 
 function swaggerDocs(app, port) {
-  app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  console.log(`Documentación disponible en http://localhost:${port}/api-docs`);
-}
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  console.log(`Swagger avaliable in: http://localhost:${port}/api-docs`);
+};
 
 module.exports = swaggerDocs;
