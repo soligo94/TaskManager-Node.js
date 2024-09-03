@@ -9,17 +9,17 @@ async function getAllUsers() {
 
 async function getUserById(id) {
     const result = await userModel.getUserById(id);
-    return result.recordset[0];
+    return result;
 };
 
 async function getUserByUsername(username) {
     const result = await userModel.getUserByUsername(username);
-    return result.recordset[0];
+    return result;
 };
 
 async function getUserByEmail(email) {
     const result = await userModel.getUserByEmail(email);
-    return result.recordset[0];
+    return result;
 };
 
 async function createUser(data) {

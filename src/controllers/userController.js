@@ -92,11 +92,11 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     const { id } = req.params;
-    const { name, email, password } = req.body;
+    const { username, email, password } = req.body;
 
     try 
     {
-        await userService.updateUser(id, { name, email, password });
+        await userService.updateUser(id, { username, email, password });
         res.send('User updated successfully');
     } 
     catch (err)
