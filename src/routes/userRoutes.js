@@ -295,7 +295,7 @@ router.delete('/users/:id', deleteUser);
 
 /**
  * @swagger
- * /users/{id}:
+ * /users/login:
  *   post:
  *     summary: Log in with an user
  *     description: Logs with an user
@@ -307,7 +307,7 @@ router.delete('/users/:id', deleteUser);
  *           schema:
  *             type: object
  *             properties:
- *               username:
+ *              username:
  *                 type: string
  *                 example: username94
  *              password:
