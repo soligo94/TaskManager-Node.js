@@ -1,20 +1,31 @@
 // app.js
 const express = require('express');
 const swaggerDocs = require('./swagger');
-const usersRouter = require('./routes/users');
+const userRoutes = require('./routes/userRoutes');
+const cors = require('cors');
+const errorMiddleware = require('./middlewares/errorMiddleware');
+
+require('dotenv').config();
 
 const app = express();
-const PORT = 3000;
 
-// Middleware para parsear JSON
+// Middleware to parse JSON
 app.use(express.json());
 
-// Rutas
-app.use('/users', usersRouter);
+//enable CORS
+app.use(cors({ origin: 'http://localhost:3000' }));
 
-// Inicia la documentación de Swagger
-swaggerDocs(app, PORT);
+// Routes
+app.use('/api', userRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+// Starts swagger documentation
+swaggerDocs(app, process.env.PORT);
+
+// Middleware error management
+app.use(errorMiddleware);
+
+// Enabling server
+app.listen(process.env.PORT, () => {
+  console.log(`Server running at: http://localhost:${process.env.PORT}`);
 });
+
