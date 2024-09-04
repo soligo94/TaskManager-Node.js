@@ -1,17 +1,16 @@
 // This file manages the HTTP Requests and responds the client, using the services from projectServices
 const projectService = require('../services/projectServices');
-const console = require('console');
 
 const getProjectsByUser = async (req, res) => {
     const { id } = req.params;
 
     try 
     {
-        const user = await projectService.getProjectsByUser(id);
+        const projects = await projectService.getProjectsByUser(id);
 
-        if (user) 
+        if (projects) 
         {
-            res.json(user);
+            res.json(projects);
         } 
         else 
         {
@@ -40,7 +39,7 @@ const createProject = async (req, res) => {
 const updateProject = async (req, res) => {
     const { id } = req.params;
     const { projectName } = req.body;
-    
+
     try 
     {
         await projectService.updateProject(id, projectName);

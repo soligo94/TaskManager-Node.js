@@ -1,6 +1,5 @@
-// this file contains the related operations with the database using the User model data.
+// this file contains the related operations with the database using the Project model data.
 const { sql, connectDB } = require('../config/db');
-const console = require('console');
 
 async function getProjectsByUser(id) {
     let db;
@@ -23,13 +22,13 @@ async function getProjectsByUser(id) {
         } 
         else
         {
-            console.log('No users find.');
+            console.log('No projects find.');
             return [];
         }
     }
     catch(err)
     {
-        console.log('Error during user search');
+        console.log('Error during project search');
         throw err;
     }
     finally
@@ -59,7 +58,7 @@ async function createProject(projectName, userId) {
     }
     catch(err)
     {
-        console.log('Error during user creation');
+        console.log('Error during project creation');
         throw err;
     }
     finally
@@ -73,7 +72,7 @@ async function createProject(projectName, userId) {
 
 async function updateProject(id, projectName) {
     let db;
-    console.log('update: ' + id + ' ' + projectName)
+    
     try
     {
         //connect to database
