@@ -4,6 +4,7 @@ const swaggerDocs = require('./swagger');
 const userRoutes = require('./routes/userRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const priorityRoutes = require('./routes/priorityRoutes');
+const statusRoutes = require('./routes/statusRoutes');
 const cors = require('cors');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 
@@ -21,6 +22,7 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 app.use('/api', userRoutes);
 app.use('/api', projectRoutes);
 app.use('/api', priorityRoutes);
+app.use('/api', statusRoutes);
 
 // Starts swagger documentation
 swaggerDocs(app, process.env.PORT);
